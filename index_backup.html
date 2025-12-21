@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>【志榮安邸】 一期一會 ‧ 安和信義 ‧ 感質寓所</title>
+    <meta itemprop="name" content="【志榮安邸】 一期一會 ‧ 安和信義 ‧ 感質寓所">
+    <meta property="og:title" content="【志榮安邸】 一期一會 ‧ 安和信義 ‧ 感質寓所">
+    <meta property="og:site_name" content="【志榮安邸】 一期一會 ‧ 安和信義 ‧ 感質寓所">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&family=Noto+Serif+TC:wght@500;700&display=swap&family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ba6016',
+                        'primary-dark': '#ba5f16',
+                    },
+                    fontFamily: {
+                        'sans-tc': ['Noto Sans TC', 'sans-serif'],
+                        'serif-tc': ['Noto Serif TC', 'serif'],
+                        'garamond': ['Cormorant Garamond', 'serif'],
+                    },
+                    screens: {
+                        'xs': '480px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '992px',
+                        'xl': '1300px',
+                        '2xl': '1500px',
+                        '3xl': '1700px',
+                        '4xl': '1800px',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Heroicons (inline SVGs used in HTML) -->
+
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <style>
+        /* ========== Base Styles ========== */
+        *,*::before,*::after { position: relative; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-size: 1rem; font-family: 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; color: #1a1a1a; }
+        @media (max-width: 1700px) { body { font-size: 0.9rem; } }
+        @media (max-width: 1500px) { body { font-size: 0.8rem; } }
+
+        /* ========== Stage Background ========== */
+        .stage { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+        .stage .layer { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
+
+        /* ========== Video Block ========== */
+        .video-block { display: flex; width: 100%; position: relative; justify-content: center; align-items: center; }
+        .video-block__area { width: 100%; font-size: 0; position: relative; }
+        .video-block__area video { width: 100%; height: 100%; }
+        .video-block__sound { position: absolute; bottom: 3%; right: 5%; width: 100%; display: flex; justify-content: flex-end; align-items: center; font-size: 14px; color: #E0DFC6; z-index: 9999; }
+        @media (max-width: 991px) { .video-block__sound { bottom: 5%; } }
+        .video-block__sound-btn { font-size: 14px; color: #E0DFC6; font-weight: bold; cursor: pointer; }
+
+        /* ========== Image Component (BEM) ========== */
+        .img-box a { display: block; }
+        .img-box__inner { width: 100%; padding-top: 108%; overflow: hidden; }
+        .img-box__image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; transition: transform 0.8s ease; }
+        .img-box:hover .img-box__image { transform: scale(1.05); }
+
+        /* ========== Info Image (BEM) ========== */
+        .info-img { position: absolute; right: 0; bottom: 0; color: #fff; width: 100%; text-align: right; padding: 5px 10px; text-shadow: 0 0 10px rgba(0,0,0,0.678); font-size: 0.7rem; letter-spacing: 2px; z-index: 2; }
+        @media (max-width: 991px) { .info-img { font-size: 0.5rem; letter-spacing: 1px; padding: 3px 5px; } }
+        .info-img--overlay { position: absolute; top: 10px; right: 10px; bottom: auto; font-size: 11px; color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.5); padding: 5px 10px; z-index: 10; text-shadow: none; text-align: center; width: auto; }
+        @media (max-width: 991px) { .info-img--overlay { font-size: 0.5rem; letter-spacing: 1px; padding: 3px 5px; } }
+
+        /* ========== Text Component (BEM) ========== */
+        .txt { z-index: 2; position: relative; }
+        .txt__title { font-family: "Noto Serif TC", serif; font-weight: 600; letter-spacing: 5px; }
+        @media (max-width: 1500px) { .txt__title { font-size: 1.7rem; } }
+        @media (max-width: 991px) { .txt__title { font-size: 1.2rem; letter-spacing: 3px; } }
+        .txt__subtitle { color: #ba6016; font-family: "Noto Serif TC", serif; letter-spacing: 1px; }
+        @media (max-width: 1500px) { .txt__subtitle { font-size: 1.1rem; } }
+        @media (max-width: 991px) { .txt__subtitle { font-size: 0.9rem; letter-spacing: 0; } }
+        .txt__body { letter-spacing: 2px; line-height: 2; }
+        @media (max-width: 991px) { .txt__body { letter-spacing: 1px; } }
+        .txt__deco { font-family: "Cormorant Garamond", serif; font-weight: 100; font-size: 2.5rem; letter-spacing: 8px; color: #ba6016; position: relative; display: inline-block; }
+        @media (max-width: 1500px) { .txt__deco { font-size: 2rem; } }
+        @media (max-width: 991px) { .txt__deco { font-size: 1.5rem; letter-spacing: 3px; } }
+
+        /* ========== Legacy Support (for old class names) ========== */
+        .Img a { display: block; }
+        .Img .innerImg { width: 100%; padding-top: 108%; overflow: hidden; }
+        .Img .innerImg .image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; transition: transform 0.8s ease; }
+        .Img:hover .innerImg .image { transform: scale(1.05); }
+        .Txt { z-index: 2; position: relative; }
+        .Txt h2 { font-family: "Noto Serif TC", serif; font-weight: 600; letter-spacing: 5px; }
+        @media (max-width: 1500px) { .Txt h2 { font-size: 1.7rem; } }
+        @media (max-width: 991px) { .Txt h2 { font-size: 1.2rem; letter-spacing: 3px; } }
+        .Txt h5 { color: #ba6016; font-family: "Noto Serif TC", serif; letter-spacing: 1px; }
+        @media (max-width: 1500px) { .Txt h5 { font-size: 1.1rem; } }
+        @media (max-width: 991px) { .Txt h5 { font-size: 0.9rem; letter-spacing: 0; } }
+        .Txt p { letter-spacing: 2px; line-height: 2; }
+        @media (max-width: 991px) { .Txt p { letter-spacing: 1px; } }
+        .Txt .decoTxt { font-family: "Cormorant Garamond", serif; font-weight: 100; font-size: 2.5rem; letter-spacing: 8px; color: #ba6016; position: relative; display: inline-block; }
+        @media (max-width: 1500px) { .Txt .decoTxt { font-size: 2rem; } }
+        @media (max-width: 991px) { .Txt .decoTxt { font-size: 1.5rem; letter-spacing: 3px; } }
+
+        /* ========== Navbar - Desktop: Top, Mobile: Bottom ========== */
+        .navbar {
+            padding: 0; width: 100%; position: fixed; z-index: 9998; top: 0; left: 0;
+            background-color: rgba(252, 252, 252, 0.72);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+            color: #000; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex; justify-content: space-between;
+            opacity: 0; transform: translateY(-10px); transition: all 0.5s;
+        }
+        .navbar .navbar-brand { padding: 10px 2%; }
+        .navbar .navbar-brand img { height: 3rem; }
+        .navbar .navbar-Link { display: flex; }
+        .navbar .navbar-Link .btn {
+            font-family: "Noto Serif TC", serif; flex: 1; font-size: 1.1rem; min-width: 140px;
+            color: #ba5f16; padding: 16px 0; text-align: center; border-left: 1px solid #c6987d;
+            background: transparent; border-radius: 0;
+        }
+        .navbar .navbar-Link .btn:hover, .navbar .navbar-Link .btn:active {
+            border-color: transparent; border-left: 1px solid #c6987d;
+            background-color: rgba(255, 255, 255, 0.67);
+        }
+        .navbar .navbar-Link .btn .navbar__icon { display: none; width: 1.5rem; height: 1.5rem; margin: 0 auto; }
+        .navbar .navbar-Link .btn span { display: block; font-size: 0.85rem; letter-spacing: 1px; }
+        .navbar .navbar-Link .btn .mainTxt { display: block; font-size: 0.75rem; color: #1a1a1a; margin-bottom: 2px; }
+        .navbar.Sticky { opacity: 1; transform: translateY(0px); }
+        @media (max-width: 991px) {
+            .navbar { box-shadow: 0px -6px 20px rgba(0, 0, 0, 0.1); bottom: 0; top: auto; opacity: 1; transform: translateY(0); }
+            .navbar .navbar-brand { display: none; }
+            .navbar .navbar-Link { width: 100%; }
+            .navbar .navbar-Link .btn { min-width: auto; font-size: 14px; padding: 10px 0; padding-bottom: 16px; }
+            .navbar .navbar-Link .btn .navbar__icon { display: block; }
+            .navbar .navbar-Link .btn span { display: none; }
+            .navbar .navbar-Link .btn .mainTxt { display: none; }
+        }
+
+        /* ========== Banner Area ========== */
+        .bannerArea { position: relative; }
+        .bannerArea .stage { overflow: hidden; }
+        .bannerArea .stage .layer.parallax {
+            background-attachment: fixed;
+            -webkit-background-attachment: fixed;
+        }
+        @media (max-width: 991px) {
+            .bannerArea .stage .layer.parallax { background-attachment: scroll; }
+        }
+        .bannerArea .slogan { position: absolute; opacity: 0; }
+        .bannerArea .bannerBox { min-height: 100vh; align-items: end; }
+        @media (max-width: 991px) { .bannerArea .bannerBox { min-height: 0; padding: 70% 0 25% 0; } }
+        .bannerArea .bannerBox img { width: 27%; display: block; margin: 0 auto; }
+        @media (max-width: 1700px) { .bannerArea .bannerBox img { width: 25%; } }
+        @media (max-width: 1500px) { .bannerArea .bannerBox img { width: 20%; } }
+        @media (max-width: 991px) { .bannerArea .bannerBox img { width: 30%; } }
+        @media (max-width: 767px) { .bannerArea .bannerBox img { width: 50%; } }
+        .bannerArea .bannerBox .Txt { color: #fff; text-align: center; margin: 20% 0 10% 0; }
+        @media (max-width: 991px) { .bannerArea .bannerBox .Txt { margin: 50% 0 0 0; } }
+        .bannerArea .bannerBox .Txt h2 { font-weight: 600; text-align: justify; text-align-last: justify; max-width: 520px; margin: 0 auto; }
+        @media (max-width: 1700px) { .bannerArea .bannerBox .Txt h2 { max-width: 484px; } }
+        @media (max-width: 1500px) { .bannerArea .bannerBox .Txt h2 { max-width: 400px; } }
+        @media (max-width: 991px) { .bannerArea .bannerBox .Txt h2 { max-width: 250px; } }
+        .bannerArea .bannerBox .Txt small { display: block; text-align: center; padding-left: 8px; letter-spacing: 8px; margin-top: 5px; }
+        @media (max-width: 1700px) { .bannerArea .bannerBox .Txt small { padding-left: 7px; letter-spacing: 7.5px; } }
+        @media (max-width: 1500px) { .bannerArea .bannerBox .Txt small { padding-left: 5.2px; letter-spacing: 5.8px; } }
+        @media (max-width: 991px) { .bannerArea .bannerBox .Txt small { font-size: 11px; padding-left: 2px; letter-spacing: 2px; } }
+
+        /* ========== Page 01 ========== */
+        .page01 { padding: 15% 0 7% 0; overflow: hidden; }
+        @media (max-width: 991px) { .page01 { padding: 25% 0 15% 0; } }
+        @media (max-width: 576px) { .page01 { padding: 30% 0 20% 0; } }
+        .page01 .Txt { text-align: center; padding: 0 15px; }
+        .page01 .Txt b { display: block; color: #ba6016; font-size: 6rem; font-weight: 300; letter-spacing: 10px; font-family: "Cormorant Garamond", serif; }
+        @media (max-width: 1500px) { .page01 .Txt b { font-size: 5rem; } }
+        @media (max-width: 991px) { .page01 .Txt b { font-size: 2rem; letter-spacing: 2px; } }
+        @media (max-width: 576px) { .page01 .Txt b { font-size: 1.5rem; letter-spacing: 1px; } }
+        .page01 .Txt h2 { letter-spacing: 8px; font-weight: 600; margin-bottom: 4rem; }
+        @media (max-width: 991px) { .page01 .Txt h2 { letter-spacing: 5px; margin-bottom: 3rem; line-height: 1.3; font-size: 1.3rem; } }
+        @media (max-width: 576px) { .page01 .Txt h2 { letter-spacing: 2px; margin-bottom: 2rem; font-size: 1.1rem; } }
+        .page01 .Txt h2 small { font-family: "Cormorant Garamond", serif; letter-spacing: 2px; font-size: 2.3rem; }
+        @media (max-width: 991px) { .page01 .Txt h2 small { font-size: 1.4rem; display: block; letter-spacing: 0; } }
+        @media (max-width: 576px) { .page01 .Txt h2 small { font-size: 1.1rem; } }
+        .page01 .Txt h4 { color: #ba6016; font-family: "Noto Serif TC", serif; letter-spacing: 5px; margin-top: 18%; }
+        @media (max-width: 991px) { .page01 .Txt h4 { font-size: 1rem; letter-spacing: 2px; margin-top: 15%; } }
+        @media (max-width: 576px) { .page01 .Txt h4 { font-size: 0.9rem; letter-spacing: 1px; } }
+        .page01 .Txt p { font-family: "Noto Serif TC", serif; letter-spacing: 2.5px; line-height: 2; position: relative; padding: 1.5rem 2.5rem; max-width: 650px; margin: 0 auto; }
+        @media (max-width: 991px) { .page01 .Txt p { letter-spacing: 1px; font-size: 0.9rem; padding: 1rem 1.5rem; max-width: 500px; } }
+        @media (max-width: 576px) { .page01 .Txt p { letter-spacing: 0.5px; font-size: 0.8rem; line-height: 1.8; padding: 0.8rem 1rem; max-width: 90%; } }
+        .page01 .Txt p span { letter-spacing: 1px; }
+        @media (max-width: 991px) { .page01 .Txt p span { letter-spacing: 0; } }
+        .page01 .Txt p::after { content: ""; width: 30px; height: 50px; border-top: 0.5px solid #000; border-left: 0.5px solid #000; position: absolute; top: 0; left: 0; }
+        @media (max-width: 991px) { .page01 .Txt p::after { width: 20px; height: 40px; } }
+        @media (max-width: 576px) { .page01 .Txt p::after { width: 15px; height: 30px; } }
+        .page01 .Txt p::before { content: ""; width: 30px; height: 50px; border-bottom: 0.5px solid #000; border-right: 0.5px solid #000; position: absolute; bottom: 0; right: 0; }
+        @media (max-width: 991px) { .page01 .Txt p::before { width: 20px; height: 40px; } }
+        @media (max-width: 576px) { .page01 .Txt p::before { width: 15px; height: 30px; } }
+        .page01 .char { opacity: 0; transform: scale(1.7); display: inline-block; will-change: transform, opacity; }
+        .page01 .char.animate { animation: zoomOut 0.6s ease forwards; }
+        @keyframes zoomOut { 0% { opacity: 0; transform: scale(1.7); } 100% { opacity: 1; transform: scale(1); } }
+
+        /* ========== Page 02 & 05 ========== */
+        .page02, .page05 { padding: 0 3% 5% 3%; overflow: hidden; }
+        @media (max-width: 991px) { .page02, .page05 { padding: 0 3% 3rem 3%; } }
+        .page02 .TxtBox, .page05 .TxtBox { display: flex; flex-direction: column; justify-content: end; height: 100%; }
+        .page02 .Txt, .page05 .Txt { text-align: center; }
+        .page02 .Txt h5, .page05 .Txt h5 { margin: 1rem 0 4rem 0; line-height: 1.5; }
+        @media (max-width: 991px) { .page02 .Txt h5, .page05 .Txt h5 { margin: 10px 0 2rem 0; font-size: 0.8rem; line-height: 1.4; } }
+        .page02 .decoTxt, .page05 .decoTxt { display: inline-block; margin-top: 25%; }
+        @media (max-width: 991px) { .page02 .decoTxt, .page05 .decoTxt { margin-top: 1rem; margin-bottom: 2rem; } }
+        .page02 .decoTxt::after, .page05 .decoTxt::after { content: ""; width: 60px; height: 0.5px; background: #ba6016; position: absolute; top: 50%; left: 103%; }
+        @media (max-width: 1500px) { .page02 .decoTxt::after, .page05 .decoTxt::after { width: 50px; } }
+        @media (max-width: 991px) { .page02 .decoTxt::after, .page05 .decoTxt::after { width: 30px; } }
+        .page02 .decoTxt::before, .page05 .decoTxt::before { content: ""; width: 60px; height: 0.5px; background: #ba6016; position: absolute; top: 50%; right: 103%; }
+        @media (max-width: 1500px) { .page02 .decoTxt::before, .page05 .decoTxt::before { width: 50px; } }
+        @media (max-width: 991px) { .page02 .decoTxt::before, .page05 .decoTxt::before { width: 30px; } }
+
+        /* ========== Page 03 ========== */
+        .page03 { padding: 0 3% 5% 3%; overflow: hidden; }
+        @media (max-width: 991px) { .page03 { padding: 0 3% 3rem 3%; } }
+        .page03 .Txt { text-align: center; }
+        @media (max-width: 991px) { .page03 .Txt { margin-bottom: 2rem; } }
+        .page03 .Txt img { width: 35%; display: block; margin: 0 auto 2rem auto; }
+        @media (max-width: 991px) { .page03 .Txt img { width: 45%; } }
+        .page03 .Txt h2 { margin-bottom: 1rem; }
+        @media (max-width: 991px) { .page03 .Txt h2 { margin-bottom: 10px; } }
+        .page03 .Txt .decoTxt { margin: 2rem 0 5px 0; }
+        .page03 .Txt .bigger { animation: bigger-animate 5s infinite both; }
+        @keyframes bigger-animate { 0%, 100% { transform: scale(0.9); } 50% { transform: scale(1); } }
+
+        /* ========== Page 04 ========== */
+        .page04 { overflow: hidden; position: relative; }
+        .page04 .Txt { font-family: "Cormorant Garamond", serif; position: absolute; bottom: 5%; left: 5%; }
+        .page04 .Txt b { color: #ba6016; font-size: 6rem; font-weight: 300; letter-spacing: 10px; line-height: 1; }
+        @media (max-width: 1500px) { .page04 .Txt b { font-size: 5rem; } }
+        @media (max-width: 991px) { .page04 .Txt b { font-size: 2.7rem; letter-spacing: 3px; } }
+        .page04 .Txt small { color: #fff; display: block; letter-spacing: 2px; padding-left: 10px; }
+        @media (max-width: 991px) { .page04 .Txt small { padding-left: 2px; letter-spacing: 1px; } }
+        .page04 .Img .innerImg { padding-top: 56%; }
+        @media (max-width: 991px) { .page04 .Img .innerImg { padding-top: 177%; } }
+        .page04 .light { -webkit-mask-image: url(https://anhe.tw/images/img/mark-light.png); -webkit-mask-repeat: no-repeat; -webkit-mask-size: 100% auto; -webkit-mask-position: center 0%; animation: light-animate 1.5s infinite linear(0.58 -21.54%, -0.2 111.56%) both; }
+        @media (max-width: 991px) { .page04 .light { animation-timing-function: linear(0.59 26.57%, 0.65 95.69%); } }
+        @keyframes light-animate { 0%, 100% { -webkit-mask-position: 0 -200%; } 50% { -webkit-mask-position: 0 300%; } }
+
+        /* ========== Page 05 ========== */
+        .page05 { padding: 5% 3% 5% 0; }
+        @media (max-width: 991px) { .page05 { padding: 3rem 3%; } }
+        .page05 .decoTxt { display: inline-block; margin-top: 25%; }
+        @media (max-width: 991px) { .page05 .decoTxt { margin-top: 1rem; margin-bottom: 2rem; } }
+        .page05 .decoTxt::after { width: 0; }
+        .page05 .decoTxt::before { width: 0; }
+        .page05 .Img .innerImg { padding-top: 147%; }
+
+        /* ========== Page 06 & 10 ========== */
+        .page06, .page10 { overflow: hidden; position: relative; }
+        .page06 .Txt, .page10 .Txt { position: absolute; bottom: 7%; left: 5%; color: #fff; }
+        @media (max-width: 991px) { .page06 .Txt, .page10 .Txt { bottom: 1rem; } }
+        .page06 .Txt p, .page10 .Txt p { margin-top: 2rem; }
+        @media (max-width: 991px) { .page06 .Txt p, .page10 .Txt p { margin-top: 1rem; } }
+        .page06 .Txt .title, .page10 .Txt .title { writing-mode: vertical-lr; white-space: nowrap; margin: 0 0 5rem 1rem; position: relative; }
+        @media (max-width: 991px) { .page06 .Txt .title, .page10 .Txt .title { margin-bottom: 3.5rem; } }
+        .page06 .Txt .title::after, .page10 .Txt .title::after { content: ""; width: 75px; height: 0.5px; background: #fff; position: absolute; bottom: -2.5rem; left: -2rem; transform: rotate(119deg); }
+        @media (max-width: 991px) { .page06 .Txt .title::after, .page10 .Txt .title::after { width: 50px; bottom: -1.5rem; left: -1.5rem; } }
+        .page06 .Txt .title h4, .page10 .Txt .title h4 { font-family: "Cormorant Garamond", serif; letter-spacing: 7px; font-weight: 300; margin: 0; }
+        @media (max-width: 1500px) { .page06 .Txt .title h4, .page10 .Txt .title h4 { font-size: 1.2rem; } }
+        @media (max-width: 991px) { .page06 .Txt .title h4, .page10 .Txt .title h4 { font-size: 1rem; } }
+
+        /* ========== Page 07 ========== */
+        .page07 { background: #ba6016; padding: 23% 0; overflow: hidden; }
+        .page07 .Txt b { font-family: "Cormorant Garamond", serif; font-size: 6rem; font-weight: 300; letter-spacing: 10px; line-height: 1; color: #000; }
+        @media (max-width: 1500px) { .page07 .Txt b { font-size: 5rem; } }
+        @media (max-width: 991px) { .page07 .Txt b { font-size: 2.7rem; letter-spacing: 4px; } }
+        .page07 .Txt b span { display: flex; align-items: start; justify-content: end; }
+        @media (max-width: 991px) { .page07 .Txt b span { justify-content: center; } }
+        .page07 .Txt b h2 { color: #fff; margin-top: 10px; letter-spacing: 8px; margin-left: 16px; }
+        @media (max-width: 1500px) { .page07 .Txt b h2 { margin-left: 5px; } }
+        @media (max-width: 991px) { .page07 .Txt b h2 { font-size: 0.9rem; letter-spacing: 4px; margin-left: 0; margin-top: 5px; } }
+        .page07 .Txt b h2 span { display: block; text-align: left; font-size: 1.2rem; margin-left: 3px; color: #000; margin-top: 10px; }
+        @media (max-width: 1500px) { .page07 .Txt b h2 span { font-size: 1.1rem; margin-top: 5px; margin-left: 1px; } }
+        @media (max-width: 991px) { .page07 .Txt b h2 span { font-size: 0.7rem; margin-top: 2px; margin-left: 1px; } }
+        .page07 .Txt h5 { color: #000; margin-bottom: 3rem; font-weight: 600; }
+        @media (max-width: 991px) { .page07 .Txt h5 { line-height: 1.7; margin-bottom: 2rem; letter-spacing: 1px; } }
+        .page07 .Txt p { color: #000; margin-bottom: 0; }
+        .page07 .title { text-align: right; position: relative; }
+        @media (max-width: 991px) { .page07 .title { text-align: center; padding-bottom: 2rem; margin-bottom: 2rem; } }
+        .page07 .title::after { content: ""; width: 1px; height: 90%; background: #000; position: absolute; top: 50%; right: -8%; transform: translateY(-50%); }
+        @media (max-width: 991px) { .page07 .title::after { width: 245px; height: 1px; top: auto; right: auto; left: 50%; bottom: 0; transform: translate(-50%, 0); } }
+        .page07 .subTxt { padding-left: 16%; }
+        @media (max-width: 991px) { .page07 .subTxt { text-align: center; padding-left: 0; } }
+
+        /* ========== Page 08 ========== */
+        .page08 { overflow: hidden; padding: 5% 0; }
+        @media (max-width: 991px) { .page08 { padding: 3rem 3%; } }
+        .page08 .Txt { text-align: center; width: 87%; margin-left: auto; padding-right: 5%; }
+        @media (max-width: 1300px) { .page08 .Txt { width: 90%; padding-right: 0%; } }
+        @media (max-width: 991px) { .page08 .Txt { width: 100%; padding-right: 0; } }
+        .page08 .Txt img { width: 35%; display: block; margin: 0 auto 2rem auto; }
+        @media (max-width: 1700px) { .page08 .Txt img { width: 27%; margin-bottom: 1rem; } }
+        @media (max-width: 991px) { .page08 .Txt img { width: 27%; margin-bottom: 1rem; } }
+        @media (max-width: 767px) { .page08 .Txt img { width: 47%; } }
+        .page08 .Txt h5 { margin-bottom: 3rem; }
+        @media (max-width: 991px) { .page08 .Txt h5 { margin-bottom: 2rem; } }
+        .page08 .Txt .decoTxt { text-align: right; }
+        @media (max-width: 991px) { .page08 .Txt .decoTxt { text-align: center; letter-spacing: 1px; font-size: 1.3rem; margin-top: 1rem; } }
+        .page08 .subTxt { text-align: left; margin-top: 8%; }
+        @media (max-width: 991px) { .page08 .subTxt { margin-bottom: 2rem; } }
+        .page08 .subTxt .info { border-top: 0.5px solid #ba6016; border-bottom: 0.5px solid #ba6016; padding: 1rem 0; margin: -15px 0 2rem 0; }
+        @media (max-width: 991px) { .page08 .subTxt .info { margin-bottom: 1rem; } }
+        .page08 .subTxt .info small { letter-spacing: 1px; display: block; }
+        @media (max-width: 1700px) { .page08 .subTxt .info small { font-size: 12px; } }
+        @media (max-width: 991px) { .page08 .subTxt .info small { font-size: 10px; } }
+        .page08 .subTxt .info small:first-child { margin-bottom: 1rem; }
+        .page08 .subTxt h5 { display: inline-block; margin-bottom: 10px; background: #fff; z-index: 3; letter-spacing: 1px; padding-right: 10px; }
+        .page08 .subTxt h6 { background: #ba6016; color: #fff; display: inline-block; padding: 3px 10px 5px 10px; letter-spacing: 2px; font-weight: 400; }
+        @media (max-width: 991px) { .page08 .subTxt h6 { font-size: 10px; padding: 3px 7px; } }
+        .page08 .workList { display: flex; margin-top: 10px; align-items: start; }
+        @media (max-width: 991px) { .page08 .workList { margin-top: 0; justify-content: start; } }
+        .page08 .workList .item:nth-child(2) { margin: 0 4%; border-left: 0.5px solid #000; border-right: 0.5px solid #000; padding: 0 4%; }
+        @media (max-width: 1800px) { .page08 .workList .item:nth-child(2) { margin: 0 3%; padding: 0 3%; } }
+        @media (max-width: 991px) { .page08 .workList .item:nth-child(2) { margin: 0 2%; padding: 0 2%; } }
+        .page08 .workList p { margin-bottom: 0; font-size: 14px; letter-spacing: 1px; line-height: 1; }
+        @media (max-width: 1700px) { .page08 .workList p { font-size: 12px; } }
+        @media (max-width: 1500px) { .page08 .workList p { letter-spacing: 0.5px; } }
+        @media (max-width: 991px) { .page08 .workList p { font-size: 9px; } }
+        .page08 .workList small { color: #ba6016; }
+        @media (max-width: 1700px) { .page08 .workList small { font-size: 10px; } }
+        @media (max-width: 991px) { .page08 .workList small { font-size: 9px; letter-spacing: 0; } }
+        .page08 .workList span { display: block; font-size: 10px; color: rgba(0,0,0,0.67); margin-top: 2px; }
+        @media (max-width: 1700px) { .page08 .workList span { font-size: 8px; } }
+        @media (max-width: 991px) { .page08 .workList span { font-size: 7px; letter-spacing: 0; } }
+        .page08 .Img .innerImg { padding-top: 75%; }
+
+        /* ========== Page 09 ========== */
+        .page09 { overflow: hidden; padding-right: 1%; padding-bottom: 5%; }
+        @media (max-width: 991px) { .page09 { padding: 3rem 3%; } }
+        .page09 .TxtBox { width: 85%; margin: 0 auto; }
+        @media (max-width: 1500px) { .page09 .TxtBox { width: 90%; } }
+        @media (max-width: 991px) { .page09 .TxtBox { width: 100%; } }
+        .page09 .TxtBox .Txt { text-align: center; }
+        .page09 .TxtBox .Txt p { margin-top: 3rem; }
+        @media (max-width: 991px) { .page09 .TxtBox .Txt p { margin-top: 2rem; } }
+        .page09 .TxtBox .imgBox { margin-bottom: 3rem; margin-top: 25%; position: relative; }
+        @media (max-width: 991px) { .page09 .TxtBox .imgBox { margin: 2rem 0; } }
+        .page09 .TxtBox .imgBox img { width: 20%; display: block; margin: 0 auto; background: #fff; padding: 0 10px; position: relative; z-index: 2; }
+        @media (max-width: 991px) { .page09 .TxtBox .imgBox img { width: 25%; } }
+        @media (max-width: 767px) { .page09 .TxtBox .imgBox img { width: 40%; } }
+        .page09 .TxtBox .imgBox::after { content: ""; width: 100%; height: 0.5px; background: #ba6016; position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: 1; }
+        @media (max-width: 991px) { .page09 .btnBox { margin-bottom: 2rem; } }
+        .page09 .btnBox .btn { color: #ba6016; font-family: "Noto Serif TC", serif; border: 1px solid #ba6016; padding: 5px 0; display: block; text-align: center; margin-bottom: 1rem; text-decoration: none; background: transparent; }
+        @media (max-width: 991px) { .page09 .btnBox .btn { font-size: 14px; padding: 3px 0; margin-bottom: 5px; } }
+        .page09 .btnBox .btn:hover { color: #fff; background: #ba6016; }
+        .page09 .btnBox .btn.active { color: #fff; background: #ba6016; }
+        .page09 .btnBox small { letter-spacing: 1px; display: inline-block; }
+        @media (max-width: 991px) { .page09 .btnBox small { letter-spacing: 0.5px; font-size: 10px; line-height: 1.5; } }
+        .page09 .Img .innerImg { padding-top: 100%; }
+        .page09 .Img .imgTxt { font-family: "Cormorant Garamond", serif; color: #fff; z-index: 3; font-size: 6rem; font-weight: 300; letter-spacing: 10px; text-align: right; line-height: 1; position: absolute; top: 2rem; right: 2rem; }
+        @media (max-width: 1500px) { .page09 .Img .imgTxt { font-size: 4rem; } }
+        @media (max-width: 991px) { .page09 .Img .imgTxt { font-size: 2.5rem; letter-spacing: 5px; top: 0.5rem; right: 0.5rem; } }
+        .page09 .imgItem { display: none; }
+        .page09 .imgItem:first-child { display: block; }
+
+        /* ========== Page 10 ========== */
+        .page10 .TxtBox { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+        .page10 .Txt { bottom: auto; top: 50%; transform: translateY(-50%); }
+        @media (max-width: 991px) { .page10 .Txt { top: auto; transform: translateY(0%); bottom: 0; } }
+        .page10 .Txt .title { margin: 0 0 11rem 0; }
+        @media (max-width: 991px) { .page10 .Txt .title { margin-bottom: 6rem; } }
+        .page10 .Txt .title::after { content: ""; width: 0.5px; height: 150px; background: #fff; position: absolute; bottom: -10rem; left: 1rem; transform: rotate(0); }
+        @media (max-width: 1500px) { .page10 .Txt .title::after { left: 0.7rem; } }
+        @media (max-width: 991px) { .page10 .Txt .title::after { height: 80px; bottom: -5.5rem; left: 0.5rem; } }
+        .page10 .Txt .title h2 { letter-spacing: 8px; margin-left: 5px; }
+        @media (max-width: 991px) { .page10 .Txt .title h2 { letter-spacing: 4px; } }
+
+        /* ========== Footer ========== */
+        footer { position: relative; }
+        footer .stage { overflow: hidden; }
+        footer .stage .layer.parallax {
+            background-attachment: fixed;
+            -webkit-background-attachment: fixed;
+        }
+        @media (max-width: 991px) {
+            footer { margin-bottom: 69px; }
+            footer .stage .layer.parallax { background-attachment: scroll; }
+        }
+        footer .topBox { padding: 11% 0 5% 0; position: relative; z-index: 2; }
+        @media (max-width: 1500px) { footer .topBox { padding: 13% 3%; } }
+        @media (max-width: 991px) { footer .topBox { padding: 15% 3%; } }
+        @media (max-width: 767px) { footer .topBox { padding: 3rem 3%; } }
+        footer .topBox .contactList { justify-content: center; margin-bottom: 10%; }
+        @media (max-width: 991px) { footer .topBox .contactList { margin-bottom: 15%; } }
+        footer .topBox .contactList img { width: 23%; display: block; margin: 0 auto; }
+        @media (max-width: 991px) { footer .topBox .contactList img { width: 30%; } }
+        @media (max-width: 767px) { footer .topBox .contactList img { width: 43%; } }
+        footer .topBox .contactList .formBox { margin-top: 2rem; }
+        footer .topBox .contactList .formBox p, footer .topBox .contactList .formBox a, footer .topBox .contactList .formBox span, footer .topBox .contactList .formBox .form-check-label { color: #fff; letter-spacing: 1px; }
+        footer .form-control { border-radius: 0; background-color: rgba(105, 44, 8, 0.49); border-color: rgba(255, 255, 255, 0.56); color: #fff; }
+        footer .form-control:focus { color: #fff; background-color: rgba(105, 44, 8, 0.49); outline: 0; border-color: rgba(255, 255, 255, 0.56); box-shadow: 0 0 10px 3px rgba(131, 50, 5, 0.43); }
+        footer .form-control::placeholder { color: #fff !important; }
+        footer .form-check-input:focus { box-shadow: 0 0 10px 3px rgba(131, 50, 5, 0.43); }
+        footer .btn-primary { color: #ba6016; background-color: #fff; border-color: #fff; border-radius: 5px; }
+        footer .btn-primary:hover { color: #fff; background-color: #ba6016; border-color: #ba6016; }
+
+        #checkme { padding: 5%; max-width: 1000px; }
+        #checkme h4 { font-family: "Noto Serif TC", serif; margin-bottom: 1.5rem; }
+        #checkme p { margin-bottom: 1rem; line-height: 1.8; }
+        #checkme b { display: block; margin-top: 1rem; color: #ba6016; }
+
+        /* ========== Slick Overrides ========== */
+        .slick-prev, .slick-next { width: 40px; height: 40px; z-index: 10; }
+        .slick-prev { left: 10px; }
+        .slick-next { right: 10px; }
+        .slick-prev:before, .slick-next:before {
+            content: ""; display: block; width: 20px; height: 20px;
+            border-top: 3px solid #fff; border-right: 3px solid #fff;
+            opacity: 0.9; transition: opacity 0.2s;
+        }
+        .slick-prev:before { transform: rotate(-135deg); margin-left: 8px; }
+        .slick-next:before { transform: rotate(45deg); margin-right: 8px; }
+        .slick-prev:hover:before, .slick-next:hover:before { opacity: 1; }
+        .slick-dots li button:before { color: #fff; }
+        .slick-dots li.slick-active button:before { color: #B58D62; }
+        @media (max-width: 991px) { .fancybox-caption__body { font-size: 0.7rem; } }
+
+        /* ========== Utilities ========== */
+        .text-primary { color: #ba6016 !important; }
+        .bg-primary { background-color: #ba6016 !important; }
+        .form-check-input:checked { background-color: #ba6016 !important; border-color: #ba6016 !important; }
+
+        /* ========== Bootstrap Grid Fallback ========== */
+        .container, .container-fluid { width: 100%; padding-right: 0.75rem; padding-left: 0.75rem; margin-right: auto; margin-left: auto; }
+        .container { max-width: 1320px; }
+        .row { display: flex; flex-wrap: wrap; margin-right: -0.75rem; margin-left: -0.75rem; }
+        .row > * { flex-shrink: 0; width: 100%; max-width: 100%; padding-right: 0.75rem; padding-left: 0.75rem; }
+        .col { flex: 1 0 0%; }
+        .col-6 { flex: 0 0 auto; width: 50%; }
+        .col-8 { flex: 0 0 auto; width: 66.6667%; }
+        @media (min-width: 992px) {
+            .col-lg-3 { flex: 0 0 auto; width: 25%; }
+            .col-lg-5 { flex: 0 0 auto; width: 41.6667%; }
+            .col-lg-6 { flex: 0 0 auto; width: 50%; }
+            .col-lg-7 { flex: 0 0 auto; width: 58.3333%; }
+            .col-lg-8 { flex: 0 0 auto; width: 66.6667%; }
+        }
+        @media (min-width: 1200px) {
+            .col-xl-10 { flex: 0 0 auto; width: 83.3333%; }
+        }
+        .row-cols-3 > * { flex: 0 0 auto; width: 33.3333%; }
+        .gx-1 { --bs-gutter-x: 0.25rem; }
+        .gx-2 { --bs-gutter-x: 0.5rem; }
+        .gx-3 { --bs-gutter-x: 1rem; }
+        .gx-5 { --bs-gutter-x: 3rem; }
+        .gx-1 > *, .gx-2 > *, .gx-3 > *, .gx-5 > * { padding-right: calc(var(--bs-gutter-x) * 0.5); padding-left: calc(var(--bs-gutter-x) * 0.5); }
+        @media (min-width: 992px) { .gx-lg-3 { --bs-gutter-x: 1rem; } .gx-lg-5 { --bs-gutter-x: 3rem; } .gx-lg-3 > *, .gx-lg-5 > * { padding-right: calc(var(--bs-gutter-x) * 0.5); padding-left: calc(var(--bs-gutter-x) * 0.5); } }
+        .flex-row-reverse { flex-direction: row-reverse; }
+        @media (min-width: 992px) { .flex-lg-row-reverse { flex-direction: row-reverse; } }
+        .align-items-center { align-items: center; }
+        .justify-content-center { justify-content: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .mt-3 { margin-top: 1rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+        .pe-lg-5 { padding-right: 3rem; }
+        .w-100 { width: 100%; }
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .text-decoration-underline { text-decoration: underline; }
+
+        /* ========== Form Controls Fallback ========== */
+        .form-control { display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; appearance: none; border-radius: 0.25rem; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+        .form-check { display: block; min-height: 1.5rem; padding-left: 1.5em; margin-bottom: 0.125rem; }
+        .form-check-input { width: 1em; height: 1em; margin-top: 0.25em; vertical-align: top; background-color: #fff; background-repeat: no-repeat; background-position: center; background-size: contain; border: 1px solid rgba(0, 0, 0, 0.25); appearance: none; margin-left: -1.5em; border-radius: 0.25em; }
+        .form-check-input:checked { background-color: #ba6016; border-color: #ba6016; }
+        .form-check-input[type="checkbox"]:checked { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e"); }
+        .form-check-label { cursor: pointer; }
+        .btn { display: inline-block; font-weight: 400; line-height: 1.5; text-align: center; text-decoration: none; vertical-align: middle; cursor: pointer; user-select: none; background-color: transparent; border: 1px solid transparent; padding: 0.375rem 0.75rem; font-size: 1rem; border-radius: 0.25rem; transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+        .btn-primary { color: #fff; background-color: #ba6016; border-color: #ba6016; }
+        .btn-primary:hover { color: #fff; background-color: #9d5213; border-color: #934d12; }
+        .btn-dark { color: #fff; background-color: #212529; border-color: #212529; }
+        .btn-block { display: block; width: 100%; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html"><img src="https://anhe.tw/images/logo.png" alt="安邸"></a>
+        <div class="navbar-Link">
+            <a href="tel:02-2949-8688" class="btn">
+                <svg class="navbar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd"/></svg>
+                <span class="mainTxt">貴賓專線</span><span>02-2949-8688</span>
+            </a>
+            <a href="https://www.facebook.com/share/18u4KHMb7M/?mibextid=wwXIfr" class="btn" target="_blank">
+                <svg class="navbar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                <span class="mainTxt">粉絲專頁</span><span>FaceBook</span>
+            </a>
+            <a href="https://maps.app.goo.gl/jyZ5R13fW6Xvj7tN7" class="btn" target="_blank">
+                <svg class="navbar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/></svg>
+                <span class="mainTxt">地圖導航</span><span>GoogleMap</span>
+            </a>
+            <a href="#booking" class="btn">
+                <svg class="navbar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"/></svg>
+                <span class="mainTxt">立即預約</span><span>Booking</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Video Section -->
+    <section class="video-block"><div class="video-block__area" id="videoBox"></div></section>
+
+    <!-- Banner Area -->
+    <section class="bannerArea">
+        <div class="slogan"><h1>【志榮安邸】 一期一會 ‧ 安和信義 ‧ 感質寓所</h1></div>
+        <div class="stage">
+            <div class="layer parallax hidden lg:block" style="background-image: url(https://anhe.tw/images/img/banner-bg.jpg);"></div>
+            <div class="layer lg:hidden" style="background-image: url(https://anhe.tw/images/img/banner-bg-m.jpg);" data-aos="zoom-out-up"></div>
+        </div>
+        <div class="container"><div class="row bannerBox"><div class="col">
+            <img src="https://anhe.tw/images/img/logo-w.png" data-aos="fade-down" data-aos-delay="200">
+            <div class="Txt"><h2>全球精英的隱世私享</h2><small class="font-EN">Urban Signature for the Discerning Few</small></div>
+        </div></div></div>
+    </section>
+
+    <!-- Page 01 -->
+    <section class="page01"><div class="container"><div class="Txt">
+        <b class="font-EN">INVITATION ONLY</b>
+        <h2 class="animate-text hidden lg:block" id="targetText">La Maison d'An 安邸 一場靜奢生活的邀請</h2>
+        <h2 class="animate-text lg:hidden mb-0" id="targetText2"><small>La Maison d'An</small></h2>
+        <h2 class="animate-text lg:hidden" id="targetText3">安邸 一場靜奢生活的邀請</h2>
+        <p><span class="font-EN">A place stays in your heart not for what it offers,<br class="lg:hidden"> but for what it shapes in you.</span><br>一個地方之所以留在心底, 不是它給了你什麼, <br class="lg:hidden">而是它讓你成為了誰。</p>
+        <h4>我們真正記住的,<br class="lg:hidden">是生命中的Signature Moment.</h4>
+    </div></div></section>
+
+    <!-- Page 02 -->
+    <section class="page02"><div class="container-fluid"><div class="row flex-row-reverse">
+        <div class="col-lg-6"><div class="TxtBox"><div class="Txt">
+            <h2>以一座建築, 回應世界的審美</h2>
+            <h5>紐約 AKA NoMad｜倫敦 The Londoner｜巴黎 La Réserve<br>東京 Hoshinoya｜上海 The Middle House</h5>
+            <p>安邸，與世界頂尖品味對位<br>這是一場從台北啟程的全球美學對話<br>志榮集團，以跨越時代的文化視野，打造當代風格寓所<br>以國際視野，訂製全新都市生活標準<br>創造屬於台北的經典，屬於世界的未來</p>
+        </div><div class="Txt"><div class="decoTxt"><b>URBAN DIALOGUE</b></div></div></div></div>
+        <div class="col-lg-6"><div class="imgSlick">
+            <div class="item"><a href="https://anhe.tw/images/img/page02-img-1.jpg" data-fancybox="page02-group" data-caption="紐約 AKA NoMad / 照片出處：Lissoni&Partners官網 / 圖片版權©Photographer-Veeral Patel"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page02-img-1.jpg);background-position: left center;"></div><div class="info-img">紐約 AKA NoMad / 照片出處：Lissoni&Partners官網 / 圖片版權©Photographer-Veeral Patel</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page02-img-3.jpg" data-fancybox="page02-group" data-caption="巴黎 La Réserve / 照片出處：Vogue France官網 / 圖片版權©Vogue France"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page02-img-3.jpg);background-position: bottom 19% center;"></div><div class="info-img">巴黎 La Réserve / 照片出處：Vogue France官網 / 圖片版權©Vogue France</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page02-img-4.jpg" data-fancybox="page02-group" data-caption="東京 Hoshinoya / 照片出處：The Japan times官網 / 圖片版權©HOSHINO RESORTS INC."><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page02-img-4.jpg);background-position: center right 88%;"></div><div class="info-img">東京 Hoshinoya / 照片出處：The Japan times官網 / 圖片版權©HOSHINO RESORTS INC.</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page02-img-2.jpg" data-fancybox="page02-group" data-caption="倫敦 The Londoner / 照片出處：The Londoner官網 / 圖片版權©The Londoner"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page02-img-2.jpg);background-position: center right 60%;"></div><div class="info-img">倫敦 The Londoner / 照片出處：The Londoner官網 / 圖片版權©The Londoner</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page02-img-5.jpg" data-fancybox="page02-group" data-caption="上海 The Middle House示意圖 / 照片出處：ArchDaily官網 / 圖片版權©Edmond Leong"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page02-img-5.jpg);background-position: left 28% center;"></div><div class="info-img">上海 The Middle House示意圖 / 照片出處：ArchDaily官網 / 圖片版權©Edmond Leong</div></div></div></a></div>
+        </div></div>
+    </div></div></section>
+
+    <!-- Page 03 -->
+    <section class="page03"><div class="container-fluid"><div class="row align-items-center">
+        <div class="col-lg-6"><div class="TxtBox"><div class="Txt">
+            <h2>安和×信義 美的核心之地</h2><h5>觀看世界的自由式</h5>
+            <div class="decoTxt"><b>FASCINATING LIFE</b></div>
+            <img src="https://anhe.tw/images/img/page03-img-1.png" class="bigger">
+            <p>全城心儀的一種注目  世界共感，珍貴生活圈<br>在信義計畫、仁愛圓環、敦南林蔭之間<br>東區的時尚經典與未來文本，封裝台北最美的凝視</p>
+        </div></div></div>
+        <div class="col-lg-6"><div class="imgSlick">
+            <div class="item"><a href="https://anhe.tw/images/img/page03-img-2.jpg" data-fancybox="page03-group" data-caption="安和路一段實景"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page03-img-2.jpg);background-position: bottom right 39%;"></div><div class="info-img">安和路一段實景</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page03-img-3.jpg" data-fancybox="page03-group" data-caption="安和路一段實景"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page03-img-3.jpg);background-position: bottom right;"></div><div class="info-img">安和路一段實景</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page03-img-4.jpg" data-fancybox="page03-group" data-caption="敦南SOGO(敦化×安和路口實景)"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page03-img-4.jpg);background-position: left 70% center;"></div><div class="info-img">敦南SOGO(敦化×安和路口實景)</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page03-img-5.jpg" data-fancybox="page03-group" data-caption="仁愛圓環實景"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page03-img-5.jpg);background-position: left 46% center;"></div><div class="info-img">仁愛圓環實景</div></div></div></a></div>
+        </div></div>
+    </div></div></section>
+
+    <!-- Page 04 -->
+    <section class="page04">
+        <div class="Img"><div class="innerImg">
+            <div class="image hidden lg:block" style="background-image: url(https://anhe.tw/images/img/page04-img-1.jpg);"></div>
+            <div class="image light hidden lg:block" style="background-image: url(https://anhe.tw/images/img/page04-img-2.png);"></div>
+            <div class="image lg:hidden" style="background-image: url(https://anhe.tw/images/img/page04-img-1-m.jpg);"></div>
+            <div class="image lg:hidden light" style="background-image: url(https://anhe.tw/images/img/page04-img-2-m.png);"></div>
+        </div></div>
+        <div class="Txt"><b>ADDRESS<br>OF<br>ELEGANCE</b><small>You can't buy it; you can only be invited.</small></div>
+    </section>
+
+    <!-- Page 05 -->
+    <section class="page05"><div class="container-fluid"><div class="row flex-row-reverse">
+        <div class="col-lg-5"><div class="TxtBox"><div class="Txt">
+            <h2>安和, 是一種無聲的風格共識</h2><h5>You can't buy it; you can only be invited</h5>
+            <p>「台北最優雅的800公尺，唯有品味，方能入席」<br>安和路一段靜靜綻放，宛如深色天鵝絨<br>只有真正觸摸過，才能體會<br>其內斂卻獨具風格的質感與珍貴<br>不喧囂，自成風景<br>成就一個只屬於少數人的高端隱世秘境</p>
+        </div><div class="Txt"><div class="decoTxt"><b>ADDRESS OF ELEGANCE</b></div></div></div></div>
+        <div class="col-lg-7"><div class="row gx-1 gx-lg-3">
+            <div class="col"><a href="https://anhe.tw/images/img/page05-img-1.jpg" data-fancybox="page05-group" data-caption="情境示意圖"><div class="Img"><div class="innerImg" style="padding-top:147%;"><div class="image" style="background-image: url(https://anhe.tw/images/img/page05-img-1.jpg);"></div><div class="info-img">情境示意圖</div></div></div></a></div>
+            <div class="col"><a href="https://anhe.tw/images/img/page05-img-2.jpg" data-fancybox="page05-group" data-caption="情境示意圖"><div class="Img"><div class="innerImg" style="padding-top:147%;"><div class="image" style="background-image: url(https://anhe.tw/images/img/page05-img-2.jpg);"></div><div class="info-img">情境示意圖</div></div></div></a></div>
+        </div></div>
+    </div></div></section>
+
+    <!-- Page 06 -->
+    <section class="page06">
+        <div class="info-img info-img--overlay">3D透視表現 實際以完工為準</div>
+        <img src="https://anhe.tw/images/img/page06-img.jpg" width="100%" class="hidden lg:block">
+        <img src="https://anhe.tw/images/img/page06-img-m.jpg" width="100%" class="lg:hidden">
+        <div class="Txt"><div class="title"><h4>SIGNATURE ADDRESS</h4></div><h2>安和隱逸, 優雅為邸</h2><p>這是一場為圈內人所準備的隱逸空間<br>也是一處能被時間記住的地址</p></div>
+    </section>
+
+    <!-- Page 07 -->
+    <section class="page07"><div class="container"><div class="row align-items-center">
+        <div class="col-lg-6 title"><div class="Txt" data-aos="fade-down" data-aos-delay="100"><b>CULTURAL<br><span>ELITE<h2>老靈魂 新風格<br><span>持續創新節奏</span></h2></span></b></div></div>
+        <div class="col-lg-6"><div class="Txt subTxt" data-aos="fade-up" data-aos-delay="100"><h5>真正的經典, 是跨越時間<span class="hidden lg:inline">, </span><br class="lg:hidden">且永遠持續演繹的姿態</h5><p>一場真正同層次的秘境場域<br>在此，老靈魂與新風格交會<br>以城市為秀場，以生活為風格<span class="hidden lg:inline">，</span><br class="lg:hidden">塑造全新的國際生活方式</p></div></div>
+    </div></div></section>
+
+    <!-- Page 08 -->
+    <section class="page08"><div class="container-fluid"><div class="row align-items-center gx-5">
+        <div class="col-lg-5"><div class="TxtBox"><div class="Txt">
+            <img src="https://anhe.tw/images/img/page08-icon.png"><h2>國際精品飯店的建築定藝</h2><h5>從建築外觀、LOBBY、梯廳到頂樓景觀</h5>
+            <p>Q-LAB全案 一體設計，定藝當代生活<br>以國際生活語境，從接待尺度、動線流動，到居住詩意<br>將尊榮、私密與設計美學<br>化為生活場域中的靜奢日常</p>
+        </div><div class="Txt subTxt">
+            <h5>Q-LAB｜曾柏庭 總監</h5>
+            <div class="info"><small>曾任職於多家國際知名建築事務所，包括：<br>Rafael Viñoly Architects ｜ Perkins+Wil<br>貝聿銘建築師事務所（Pei Cobb Freed & Partners）</small><small>國際獎項：<br>美國 Architizer A+ Awards 首獎<br>世界建築節大獎（World Architecture Festival Award）多次入圍<br>INSIDE 世界室內設計獎辦公類入圍<br>日本優良設計獎（Good Design Award）入圍<br>日本Sky Design Awards 入圍<br>Loop Design Awards 首獎</small></div>
+            <h6>Q-LAB 飯店代表作品</h6>
+            <div class="workList"><div class="item"><p>墾丁嘉佩樂全 Villa 度假酒店</p><small>Capella Kenting All-Villa Resort</small><span>義大利國寶建築師ACPV設計 Q-LAB台灣實施</span></div><div class="item"><p>HOTEL COLLECTIVE 沖繩</p><small>Hotel Collective, Okinawa</small></div><div class="item"><p>台南晶英酒店</p><small>Silks Place Tainan</small></div></div>
+        </div></div></div>
+        <div class="col-lg-7"><div class="imgSlick">
+            <div class="item"><a href="https://anhe.tw/images/img/page08-img-1.jpg" data-fancybox="page08-group" data-caption="墾丁嘉佩樂全 Villa 度假酒店"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page08-img-1.jpg);"></div><div class="info-img">墾丁嘉佩樂全 Villa 度假酒店</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page08-img-2.jpg" data-fancybox="page08-group" data-caption="HOTEL COLLECTIVE 沖繩"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page08-img-2.jpg);"></div><div class="info-img">HOTEL COLLECTIVE 沖繩</div></div></div></a></div>
+            <div class="item"><a href="https://anhe.tw/images/img/page08-img-3.jpg" data-fancybox="page08-group" data-caption="HOTEL COLLECTIVE 沖繩"><div class="Img"><div class="innerImg"><div class="image" style="background-image: url(https://anhe.tw/images/img/page08-img-3.jpg);"></div><div class="info-img">HOTEL COLLECTIVE 沖繩</div></div></div></a></div>
+        </div><div class="Txt w-100"><div class="decoTxt pe-lg-5" style="text-align:right;"><b>THE ART OF BOUTIQUE LIVING</b></div></div></div>
+    </div></div></section>
+
+    <!-- Page 09 -->
+    <section class="page09"><div class="container-fluid"><div class="row flex-lg-row-reverse align-items-center">
+        <div class="col-lg-5"><div class="TxtBox"><div class="Txt">
+            <h2>志之所向, 榮築經典</h2><h5>志榮, 以精萃土地, 訂製城市的簽名之作</h5>
+            <p>從郭旭原、李文勝到 Q-LAB<br>每一次合作，皆是一段時代精神的書寫<br>La Maison d'An 安邸<br>是獻給城市、時間與品味三者之間的經典延續<br>一場靜奢生活的邀請<br>為真正懂得的人而存在</p>
+        </div><div class="imgBox"><img src="https://anhe.tw/images/img/page09-txt.png"></div>
+        <div class="btnBox row row-cols-3 gx-2 gx-lg-5">
+            <div class="col"><a href="#" class="btn" id="item01">大安滕</a><small>郭旭原 /<br>銀藝簾幔<br>大安最具詩意的幾何建築</small></div>
+            <div class="col"><a href="#" class="btn" id="item02">BR4</a><small>李文勝 /<br>世界格局，定址頂尖</small></div>
+            <div class="col"><a href="#" class="btn" id="item03">川 悅</a><small>西區首排水岸<br>捷運景觀與價值並行</small></div>
+        </div></div></div>
+        <div class="col-lg-7">
+            <div class="imgItem" id="img01"><a href="https://anhe.tw/images/img/page09-img-1.jpg" data-fancybox><div class="Img"><div class="innerImg" style="padding-top:100%;"><div class="image" style="background-image: url(https://anhe.tw/images/img/page09-img-1.jpg);"></div><div class="imgTxt">BRAND<br>PHILOSOPHY</div></div></div></a></div>
+            <div class="imgItem" id="img02"><a href="https://anhe.tw/images/img/page09-img-2.jpg" data-fancybox><div class="Img"><div class="innerImg" style="padding-top:100%;"><div class="image" style="background-image: url(https://anhe.tw/images/img/page09-img-2.jpg);"></div><div class="imgTxt">BRAND<br>PHILOSOPHY</div></div></div></a></div>
+            <div class="imgItem" id="img03"><a href="https://anhe.tw/images/img/page09-img-3.jpg" data-fancybox><div class="Img"><div class="innerImg" style="padding-top:100%;"><div class="image" style="background-image: url(https://anhe.tw/images/img/page09-img-3.jpg);"></div><div class="imgTxt">BRAND<br>PHILOSOPHY</div></div></div></a></div>
+        </div>
+    </div></div></section>
+
+    <!-- Page 10 -->
+    <section class="page10">
+        <div class="info-img info-img--overlay">3D透視表現 實際以完工為準</div>
+        <img src="https://anhe.tw/images/img/page10-img.jpg" width="100%" class="hidden lg:block">
+        <img src="https://anhe.tw/images/img/page10-img-m.jpg" width="100%" class="lg:hidden">
+        <div class="TxtBox"><div class="Txt"><div class="title"><h4>PRIVATE RESIDENCE</h4><h2>限定中的限定</h2></div><h2>隱世精英的都市寓所</h2><p>經典場域的Signature——屬於圈內人的專屬時刻<br>這不只是一個住所，而是一場生活儀式的召喚<br>一片無可復刻的隱世領地</p></div></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="stage">
+            <div class="layer parallax hidden lg:block" style="background-image: url(https://anhe.tw/images/img/footer-bg.jpg);"></div>
+            <div class="layer lg:hidden" style="background-image: url(https://anhe.tw/images/img/footer-bg-m.jpg);" data-aos="zoom-out-up"></div>
+        </div>
+        <div class="topBox" id="booking"><div class="container"><div class="row contactList"><div class="col-lg-8 col-xl-10">
+            <img src="https://anhe.tw/images/img/footer-txt.png" class="mt-3" data-aos="fade-down" data-aos-delay="200">
+            <div class="formBox" data-aos="zoom-out-up">
+                <form id="form1" name="form1" method="post" action="https://form.utmost.com.tw/admins/contactemailgo.php?id=336">
+                    <div class="row mb-3"><div class="col-lg-6"><input class="form-control mb-2" type="text" name="contact_name" placeholder="姓名:" required><input class="form-control mb-2 mb-lg-0" name="contact_phone" placeholder="電話:" type="tel" pattern="[0-9]{10}" maxlength="10" required></div><div class="col-lg-6"><textarea name="contact_note" class="form-control" cols="1" rows="3" placeholder="留言:"></textarea></div></div>
+                    <input type="hidden" name="contact_email" id="current_url">
+                    <div class="row"><div class="col-lg-6"><div class="g-recaptcha" data-sitekey="6LcUgBApAAAAAB5Akvr7OJyu935Y1Vj_EccNBwUa"></div></div><div class="col-lg-6"><p class="text-left mb-0">你所登錄的個人資料將做為以下用途<br>(一)本網站所載之相關事項通知<br>(二)客戶管理與服務<div class="flex d-lg-inline"><span>(三)</span><span>本公司行銷業務之推廣本案實際內容以現場公布為準</span></div></p><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required><label class="form-check-label" for="flexCheckChecked">我同意<a data-fancybox data-src="#checkme" href="javascript:;" class="text-decoration-underline">隱私權政策</a></label></div></div></div>
+                    <div class="col-6 col-lg-3 mt-3 mx-auto"><div class="grid"><input class="btn btn-primary btn-block py-1" type="submit" value="立 即 預 約"><input name="go_email" type="hidden" value="service"></div></div>
+                </form>
+            </div>
+        </div></div></div>
+        <img src="https://anhe.tw/images/img/footer-info.png" width="82%" class="d-none lg:block mx-auto" data-aos="fade-up">
+        <img src="https://anhe.tw/images/img/footer-info-m.png" width="90%" class="block lg:hidden mx-auto" data-aos="fade-up">
+    </div></footer>
+
+    <!-- Privacy Modal -->
+    <div id="checkme" style="display:none;width:100%;max-width:1000px;padding:5%;"><h4>個人資料保護政策暨隱私權聲明</h4><br><p>非常歡迎您光臨「安邸」（以下簡稱本網站），為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容</p><p><b>一、隱私權保護政策的適用範圍</b>隱私權保護政策內容，包括本網站如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。</p><p><b>二、個人資料的蒐集、處理及利用方式</b>當您造訪本網站或使用本網站所提供之功能服務時，我們將視該服務功能性質，請您提供必要的個人資料，並在該特定目的範圍內處理及利用您的個人資料；非經您書面同意，本網站不會將個人資料用於其他用途。</p><p><b>三、資料之保護</b>本網站主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施。</p><p><b>四、網站對外的相關連結</b>本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策。</p><p><b>五、與第三人共用個人資料之政策</b>本網站絕不會提供、交換、出租或出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。</p><p><b>六、Cookie之使用</b>為了提供您最佳的服務，本網站會在您的電腦中放置並取用我們的Cookie。</p><p><b>七、隱私權保護政策之修正</b>本網站隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。</p><div class="text-center pt-3 pb-3"><button data-fancybox-close class="btn btn-dark">關閉</button></div></div>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+        // Navbar Sticky on Scroll (Desktop only)
+        $(function() {
+            $(window).scroll(function() {
+                var scrollVal = $(this).scrollTop();
+                if (scrollVal <= 60) {
+                    $(".navbar").removeClass("Sticky");
+                } else {
+                    $(".navbar").addClass("Sticky");
+                }
+            });
+        });
+
+        // AOS Attributes
+        $(".bannerArea .Txt").attr("data-aos", "zoom-out-up").attr("data-aos-delay", "100");
+        $(".page01 .Txt b").attr("data-aos", "zoom-out-up").attr("data-aos-delay", "100");
+        $(".page01 .Txt p").attr("data-aos", "zoom-out-up").attr("data-aos-delay", "200");
+        $(".page01 .Txt h4").attr("data-aos", "zoom-out-up").attr("data-aos-delay", "300");
+        $(".page02 .TxtBox").attr("data-aos", "zoom-out-down").attr("data-aos-delay", "100");
+        $(".page02 .Img").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page03 .TxtBox").attr("data-aos", "zoom-out-down").attr("data-aos-delay", "100");
+        $(".page03 .Img").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page04 .Txt").attr("data-aos", "zoom-out-up").attr("data-aos-delay", "100");
+        $(".page05 .TxtBox").attr("data-aos", "zoom-out-down").attr("data-aos-delay", "100");
+        $(".page05 .Img").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page06 .title").attr("data-aos", "fade-right").attr("data-aos-delay", "200");
+        $(".page06 h2").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page06 h5").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page06 p").attr("data-aos", "fade-up").attr("data-aos-delay", "100");
+        $(".page08 .decoTxt").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page08 .Img").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page08 .TxtBox").attr("data-aos", "zoom-out-down").attr("data-aos-delay", "100");
+        $(".page09 .Img").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page09 .TxtBox").attr("data-aos", "zoom-out-down").attr("data-aos-delay", "100");
+        $(".page09 .col-lg-7").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page10 .title").attr("data-aos", "fade-right").attr("data-aos-delay", "100");
+        $(".page10 .Txt > h2:not(.title h2)").attr("data-aos", "fade-down").attr("data-aos-delay", "100");
+        $(".page10 p").attr("data-aos", "fade-up").attr("data-aos-offset", "-100");
+
+        AOS.init({
+            duration: 1200,
+            offset: 0,
+            anchorPlacement: 'top-center',
+            easing: 'ease-out-cubic',
+            once: true,
+            startEvent: 'DOMContentLoaded'
+        });
+
+        // Slick Carousel
+        document.addEventListener("DOMContentLoaded", function () {
+            const sliders = document.querySelectorAll('.imgSlick');
+            sliders.forEach(function (slider) { $(slider).slick({ infinite: true, speed: 600, easing: 'ease-in-out', autoplay: true, autoplaySpeed: 3000, pauseOnHover: false, pauseOnFocus: false, fade: true }); $(slider).slick('slickPause'); });
+            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { const $target = $(entry.target); if (entry.isIntersecting) { $target.slick('slickPlay'); } else { $target.slick('slickPause'); } }); }, { threshold: 0.3 });
+            document.querySelectorAll('.imgSlick').forEach(slider => { observer.observe(slider); });
+        });
+
+        // Video
+        $(document).ready(function () {
+            function loadVideo() {
+                const videoBox = $("#videoBox"); const isMobile = window.innerWidth < 992;
+                const videoSrc = isMobile ? "https://anhe.tw/video/video-m.mp4" : "https://anhe.tw/video/video-pc.mp4";
+                const iconSize = isMobile ? "w-6 h-6" : "w-10 h-10";
+                videoBox.html(`<video autoplay loop playsinline muted width="100%" id="mainVideo"><source src="${videoSrc}" type="video/mp4"></video><div class="video-block__sound"><div class="video-block__sound-btn hidden" id="SoundBtn"><svg class="${iconSize} text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z"/><path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z"/></svg></div><div class="video-block__sound-btn" id="MuteBtn"><svg class="${iconSize} text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z"/></svg></div></div>`);
+                const video = $("#mainVideo")[0]; video.muted = true; video.play();
+                $("#MuteBtn").off("click").on("click", function () { video.muted = false; $("#MuteBtn").addClass("hidden"); $("#SoundBtn").removeClass("hidden"); });
+                $("#SoundBtn").off("click").on("click", function () { video.muted = true; $("#SoundBtn").addClass("hidden"); $("#MuteBtn").removeClass("hidden"); });
+            }
+            loadVideo();
+        });
+
+        // Page 09 Tab Switching
+        $(function() {
+            var $buttons = $('.btnBox .btn'), currentIndex = 0, intervalTime = 3000, interval, hasStarted = false;
+            function switchTo(index) { $buttons.removeClass('active'); var $currentBtn = $buttons.eq(index).addClass('active'); var btnId = $currentBtn.attr('id'); var imgId = btnId.replace('item', 'img'); $('.imgItem').hide(); $('#' + imgId).fadeIn(600); currentIndex = index; }
+            function startAutoSwitch() { if (hasStarted) return; hasStarted = true; interval = setInterval(function() { var nextIndex = (currentIndex + 1) % $buttons.length; switchTo(nextIndex); }, intervalTime); }
+            function stopAutoSwitch() { clearInterval(interval); }
+            $buttons.on('click', function(e) { e.preventDefault(); stopAutoSwitch(); hasStarted = false; var index = $buttons.index(this); switchTo(index); startAutoSwitch(); });
+            switchTo(0);
+            var target = document.querySelector('.btnBox');
+            var observer = new IntersectionObserver(function(entries, observer) { entries.forEach(function(entry) { if (entry.isIntersecting) { startAutoSwitch(); observer.unobserve(entry.target); } }); }, { threshold: 0.3 });
+            if (target) { observer.observe(target); }
+        });
+
+        // Text Animation
+        document.addEventListener("DOMContentLoaded", function () {
+            function animateText(targetId, delayOffset) {
+                const el = document.getElementById(targetId); if (!el) return;
+                const text = el.textContent.trim(); el.textContent = "";
+                for (let i = 0; i < text.length; i++) {
+                    const span = document.createElement("span"); span.textContent = text[i]; span.classList.add("char"); span.style.animationDelay = `${i * 0.05}s`;
+                    if (targetId === "targetText" && i < 14) { span.style.fontFamily = `"Cormorant Garamond", serif`; span.style.fontSize = window.innerWidth < 1500 ? "2rem" : "2.5rem"; if (i === 1 || i === 13 || i === 8) { span.style.letterSpacing = "8px"; } else { span.style.letterSpacing = "1px"; } }
+                    if (targetId === "targetText" && i === 16) { span.style.letterSpacing = "18px"; }
+                    if (targetId === "targetText2") { span.style.fontFamily = `"Cormorant Garamond", serif`; span.style.letterSpacing = "2px"; if (i === 1 || i === 13 || i === 8) { span.style.letterSpacing = "6px"; } else { span.style.letterSpacing = "1px"; } }
+                    if (targetId === "targetText3") { if (i === 1) { span.style.letterSpacing = "14px"; } else { span.style.letterSpacing = "3px"; } }
+                    el.appendChild(span);
+                }
+                let lastScrollY = window.scrollY, scrollDirection = "down";
+                window.addEventListener("scroll", () => { const currentY = window.scrollY; scrollDirection = currentY > lastScrollY ? "down" : "up"; lastScrollY = currentY; });
+                const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting && scrollDirection === "down") { el.querySelectorAll('.char').forEach((char) => { char.classList.remove("animate"); }); void el.offsetWidth; setTimeout(() => { el.querySelectorAll('.char').forEach((char, i) => { setTimeout(() => { char.classList.add("animate"); }, i * 20); }); }, delayOffset); } }); }, { threshold: 0.5 });
+                observer.observe(el);
+            }
+            animateText("targetText", 1200); animateText("targetText2", 1200); animateText("targetText3", 2400);
+        });
+
+        // FancyBox with Slick Sync
+        let lastIndex = 0;
+        $('[data-fancybox="page02-group"], [data-fancybox="page03-group"], [data-fancybox="page08-group"]').fancybox({ beforeShow: function (instance, slide) { lastIndex = slide.index; }, afterClose: function (instance, slide) { const $trigger = instance && instance.current && instance.current.opts.$orig; if ($trigger && $trigger.length) { const $slick = $trigger.closest('.imgSlick'); if ($slick.length) { $slick.slick('slickGoTo', lastIndex); } } } });
+
+        // Current URL for Form
+        window.addEventListener('DOMContentLoaded', function () { var input = document.getElementById('current_url'); if (input) { input.value = window.location.href; } });
+    </script>
+</body>
+</html>
