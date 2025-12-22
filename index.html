@@ -36,6 +36,9 @@
                         'serif-tc': ['Noto Serif TC', 'serif'],
                         'garamond': ['Cormorant Garamond', 'serif'],
                     },
+                    fontSize: {
+                        'xs-plus': '0.9375rem',
+                    },
                     screens: {
                         'xs': '480px',
                         'sm': '640px',
@@ -67,33 +70,33 @@
     <!-- Navbar -->
     <nav class="navbar flex justify-center sm:justify-between items-center bg-white/70 backdrop-blur-sm backdrop-saturate-200 fixed w-full z-50 bottom-0 sm:bottom-auto sm:top-0 inset-x-0 translate-y-full sm:-translate-y-full transition-transform duration-300 opacity-0 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] sm:shadow-md">
         <!-- Navbar content -->
-        <a class="navbar__brand py-4 px-8 hidden sm:block" href="index.html">
+        <a class="navbar__brand py-4 px-8 hidden sm:block" href="#bannerBox">
             <img src="./images/logo.svg" alt="聚碩仁玉" class="h-8 w-auto" />
         </a>
         <div class="navbar__links w-full flex justify-between sm:justify-end items-center">
             <!-- 貴賓專線 -->
-            <a href="tel:04-2238-3888" class="navbar__links__phone flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-xs text-primary hover:text-brown transition-colors duration-300 border-r border-primary/25 py-3 sm:py-0 sm:px-6">
+            <a href="tel:04-2238-3888" class="navbar__links__phone flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-sm sm:text-xs-plus text-primary hover:text-brown transition-colors duration-300 border-r border-primary/25 py-3 sm:py-0 sm:px-6">
                 <div class="navbar__links__phone-icon block sm:hidden w-4 h-4 mb-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd"/></svg>
                 </div>
                 <p>貴賓專線</p>
                 <p class="hidden sm:block">04-2238-3888</p>
             </a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="navbar__links__fb flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-xs text-primary hover:text-brown transition-colors duration-300 border-r border-primary/25 py-3 sm:py-0 sm:px-6">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="navbar__links__fb flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-sm sm:text-xs-plus text-primary hover:text-brown transition-colors duration-300 border-r border-primary/25 py-3 sm:py-0 sm:px-6">
                 <div class="navbar__links__fb-icon block sm:hidden w-4 h-4 mb-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
                 </div>
                 <p>粉絲專頁</p>
                 <p class="hidden sm:block">Facebook</p>
             </a>
-            <a href="https://maps.app.goo.gl/LF2MGwyr71zH8ocC6" target="_blank" rel="noopener noreferrer" class="navbar__links__map flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-xs text-primary hover:text-brown transition-colors duration-300 border-r border-primary/25 py-3 sm:py-0 sm:px-6">
+            <a href="https://maps.app.goo.gl/LF2MGwyr71zH8ocC6" target="_blank" rel="noopener noreferrer" class="navbar__links__map flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-sm sm:text-xs-plus text-primary hover:text-brown transition-colors duration-300 border-r border-primary/25 py-3 sm:py-0 sm:px-6">
                 <div class="navbar__links__map-icon block sm:hidden w-4 h-4 mb-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/></svg>
                 </div>
                 <p>地圖導航</p>
                 <p class="hidden sm:block">GoogleMap</p>
             </a>
-            <a href="https://maps.app.goo.gl/LF2MGwyr71zH8ocC6" target="_blank" rel="noopener noreferrer" class="navbar__links__booking flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-xs text-primary hover:text-brown transition-colors duration-300 py-3 sm:py-0 sm:px-6">
+            <a href="#bookingForm" class="navbar__links__booking js-scroll-to flex-1 sm:flex-none flex flex-col justify-center items-center text-center text-sm sm:text-xs-plus text-primary hover:text-brown transition-colors duration-300 py-3 sm:py-0 sm:px-6">
                 <div class="navbar__links__booking-icon block sm:hidden w-4 h-4 mb-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"/></svg>
                 </div>
@@ -110,10 +113,10 @@
             </div>
             <h1 class="banner__box--name -translate-y-full opacity-0">聚碩仁玉</h1>
             <div class="banner__box--slogan flex flex-col justify-center items-center space-y-4 sm:space-y-6 lg:space-y-8 absolute bottom-0 left-0 right-0 mx-auto mb-[6dvh] sm:mb-[7dvh] lg:mb-[8dvh]">
-                <h2 class="typewriter inline-block text-left text-white text-2xl sm:text-3xl lg:text-4xl font-serif-tc tracking-widest" data-text="高訂品味 對位不凡"></h2>
+                <h2 class="typewriter inline-block text-left text-white text-2xl sm:text-3xl lg:text-4xl font-serif-tc !tracking-[0.25em]" data-text="高訂品味 對位不凡"></h2>
                 <div class="inline-flex flex-col justify-center items-stretch space-y-1 sm:space-y-2">
-                    <h3 class="text-white text-base sm:text-lg lg:text-xl font-serif-tc tracking-widest" data-aos="zoom-out-up" data-aos-delay="1800" data-aos-duration="1200" data-aos-anchor="#bannerBox">水湳生態核心 限量40席 25坪法式御邸</h3>
-                    <p class="text-white text-sm sm:text-base font-garamond flex justify-between w-full" data-aos="zoom-out-up" data-aos-delay="2200" data-aos-duration="1000" data-aos-anchor="#bannerBox"><span>L</span><span>u</span><span>x</span><span>u</span><span>r</span><span>y</span><span>&nbsp;</span><span>T</span><span>a</span><span>s</span><span>t</span><span>e</span><span>,</span><span>&nbsp;</span><span>I</span><span>n</span><span>c</span><span>o</span><span>m</span><span>p</span><span>a</span><span>r</span><span>a</span><span>b</span><span>l</span><span>e</span><span>&nbsp;</span><span>E</span><span>l</span><span>e</span><span>g</span><span>a</span><span>n</span><span>c</span><span>e</span></p>
+                    <h3 class="text-white text-base sm:text-xl lg:text-xl font-serif-tc !tracking-widest" data-aos="zoom-out-up" data-aos-delay="1800" data-aos-duration="1200" data-aos-anchor="#bannerBox">水湳生態核心 限量40席 25坪法式御邸</h3>
+                    <p class="text-white text-sm sm:text-xs-plus font-garamond flex justify-between w-full" data-aos="zoom-out-up" data-aos-delay="2200" data-aos-duration="1000" data-aos-anchor="#bannerBox"><span>L</span><span>u</span><span>x</span><span>u</span><span>r</span><span>y</span><span>&nbsp;</span><span>T</span><span>a</span><span>s</span><span>t</span><span>e</span><span>,</span><span>&nbsp;</span><span>I</span><span>n</span><span>c</span><span>o</span><span>m</span><span>p</span><span>a</span><span>r</span><span>a</span><span>b</span><span>l</span><span>e</span><span>&nbsp;</span><span>E</span><span>l</span><span>e</span><span>g</span><span>a</span><span>n</span><span>c</span><span>e</span></p>
                 </div>
             </div>
         </div>
@@ -129,13 +132,13 @@
                         <h2 class="text-primary-dark text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-serif-tc leading-relaxed tracking-[0.2em] mb-4 sm:mb-6" data-aos="fade-down" data-aos-duration="800" data-aos-anchor="#globalStatement">
                             水湳經貿，揭幕全球都會樣態
                         </h2>
-                        <h3 class="text-primary-light font-serif-tc text-base sm:text-lg tracking-widest mb-6 sm:mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#globalStatement">
+                        <h3 class="text-primary-light font-serif-tc text-lg sm:text-xl !tracking-widest mb-6 sm:mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#globalStatement">
                             劃世代前景全城聚焦
                         </h3>
-                        <p class="text-[#212529] text-xs sm:text-sm !leading-loose" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-anchor="#globalStatement">
+                        <p class="text-[#212529] text-sm sm:text-xs-plus !leading-loose sm:!tracking-widest" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-anchor="#globalStatement">
                             水湳經貿園區以國際AI城市的姿態，開啟台中新未來<br>
-                            超級巨蛋、綠美圖、國際會展中心、水湳轉運站等前瞻落址<br>
-                            產官學500億投資、創造千億經濟產值<br>
+                            超巨蛋、綠美圖、國際會展中心、水湳轉運站落址<br>
+                            產官學500億投資，創造千億經濟產值<br>
                             水湳智慧城將重新定義國際生活價值
                         </p>
                     </div>
@@ -198,7 +201,7 @@
                         <h2 class="text-primary-dark text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-serif-tc leading-relaxed tracking-[0.2em] mb-4 sm:mb-6" data-aos="fade-down" data-aos-duration="800" data-aos-anchor="#rarityHonors">
                             3%的純翠，以稀有致敬非凡
                         </h2>
-                        <h3 class="text-primary-light font-serif-tc text-base sm:text-lg tracking-widest mb-4 sm:mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#rarityHonors">
+                        <h3 class="text-primary-light font-serif-tc text-lg sm:text-xl !tracking-widest mb-4 sm:mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#rarityHonors">
                             典藏水湳皇冠上的綠寶石—生態段
                         </h3>
                         <!-- 英文標題 -->
@@ -220,7 +223,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-[#212529] text-xs sm:text-sm !leading-loose" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800" data-aos-anchor="#rarityHonors">
+                        <p class="text-[#212529] text-sm sm:text-xs-plus !leading-loose sm:!tracking-widest" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800" data-aos-anchor="#rarityHonors">
                             捨棄七期的擁擠，擁抱水湳奢華綠境<br>
                             讓3%低密度、高綠覆的頂級純住聚落<br>
                             為您成就無價森活<br>
@@ -234,8 +237,8 @@
     </section>
 
     <!-- MONET GARDEN - 過場 -->
-    <section id="monetGarden" class="monet-garden w-full min-h-screen relative">
-        <div class="w-screen h-screen relative overflow-hidden">
+    <section id="monetGarden" class="monet-garden w-full min-h-screen relative overflow-hidden">
+        <div class="w-full h-screen relative overflow-hidden">
             <img src="./images/page-03__img01.jpg" alt="MONET GARDEN" class="monet-garden-img w-full h-full object-cover grayscale" data-aos="grayscale-to-color" data-aos-duration="1500" data-aos-anchor="#monetGarden">
             <!-- 左下角英文標題 -->
             <div class="absolute bottom-8 sm:bottom-12 lg:bottom-16 left-6 sm:left-10 lg:left-16" data-aos="fade-right" data-aos-duration="800" data-aos-anchor="#monetGarden">
@@ -275,13 +278,13 @@
                         <h2 class="text-primary-dark text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-serif-tc leading-relaxed tracking-[0.2em] mb-4 sm:mb-6" data-aos="fade-down" data-aos-duration="800" data-aos-anchor="#seasonsPoetry">
                             莫內花園裡，邀約四季共舞
                         </h2>
-                        <h3 class="text-primary-light font-serif-tc text-base sm:text-lg tracking-widest mb-6 sm:mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#seasonsPoetry">
+                        <h3 class="text-primary-light font-serif-tc text-lg sm:text-xl !tracking-widest mb-6 sm:mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#seasonsPoetry">
                             每一次漫步，都是畫裡的筆觸
                         </h3>
-                        <p class="text-[#212529] text-xs sm:text-sm !leading-loose" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-anchor="#seasonsPoetry">
-                            六都最大規模城市綠肺，64公頃中央公園綠帶為鄰<br>
+                        <p class="text-[#212529] text-sm sm:text-xs-plus !leading-loose sm:!tracking-widest" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-anchor="#seasonsPoetry">
+                            住近六都最大規模都市綠肺—64公頃中央公園<br>
                             感受莫內花園最美的漫步路線<br>
-                            法國國花鳶尾花海、優雅靜謐的睡蓮、池塘邊搖曳的菖蒲<br>
+                            法國鳶尾花海、優雅靜謐的睡蓮、池塘邊搖曳的菖蒲<br>
                             讓每天回家都是一場動人的約會
                         </p>
                     </div>
@@ -306,14 +309,14 @@
                         <h2 class="text-primary-dark text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-serif-tc leading-relaxed tracking-[0.2em] mb-4 sm:mb-6" data-aos="fade-down" data-aos-duration="800" data-aos-anchor="#urbanLifestyle">
                             中清×逢甲不遠，科園校園很近
                         </h2>
-                        <h3 class="text-primary-light font-serif-tc text-base sm:text-lg tracking-widest mb-6 sm:mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#urbanLifestyle">
+                        <h3 class="text-primary-light font-serif-tc text-lg sm:text-xl !tracking-widest mb-6 sm:mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-anchor="#urbanLifestyle">
                             城市繁華將您捧在手心
                         </h3>
-                        <p class="text-[#212529] text-xs sm:text-sm !leading-loose" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-anchor="#urbanLifestyle">
+                        <p class="text-[#212529] text-sm sm:text-xs-plus !leading-loose sm:!tracking-widest" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-anchor="#urbanLifestyle">
                             台中科技園區、74 快速道路與國道咫尺相依<br>
-                            迅速接軌七期、逢甲、12期生活圈<br>
-                            愛買、西屯傳統市場、逢甲商圈、中清路商圈為鄰<br>
-                            富裕精華聚落，演繹精彩奪目的日常享受
+                            和七期、十二期、十四期繁華生活圈同頻<br>
+                            愛買、西屯市場、逢甲夜市、中清路商圈為鄰<br>
+                            富裕精華聚落，演繹精彩奪目的日常
                         </p>
                     </div>
                     <!-- 英文標題（置底） -->
@@ -383,10 +386,10 @@
                                 <!-- 中文標題區塊 -->
                                 <div class="text-start">
                                     <h3 class="text-white font-serif-tc text-xs sm:text-lg tracking-[0.2em] sm:!leading-none xl:!leading-8">
-                                        極限量 法式邸
+                                        國際大獎認證
                                     </h3>
                                     <p class="text-goldYellow font-serif-tc text-xs sm:text-lg tracking-[0.15em] sm!leading-none xl:!leading-8">
-                                        國際大獎認證
+                                        極限量 法式邸
                                     </p>
                                 </div>
                             </div>
@@ -398,12 +401,12 @@
                     <div class="w-full lg:w-1/2 flex justify-center lg:justify-start lg:ps-12 xl:ps-20" data-aos="fade-left" data-aos-duration="800" data-aos-delay="300" data-aos-anchor="#parisianLife">
                         <div class="text-center lg:text-left">
                             <h4 class="text-goldYellow font-serif-tc text-xl sm:text-2xl lg:text-2xl xl:text-3xl tracking-[0.15em] mb-4 sm:mb-6">
-                                黃金序列剪裁<span class="hidden sm:inline-block">，</span><br class="block sm:hidden"/>高訂40席璀璨精品
+                                黃金序列剪裁<span class="hidden sm:inline-block">，</span><br class="block sm:hidden"/>40席璀璨精品
                             </h4>
-                            <p class="text-goldYellow/80 text-xs sm:text-sm !leading-loose tracking-wide">
-                                從法式長型序列語彙著眼，以細膩手法重現法式建築經典<br>
-                                精質40戶的極致尊寵，一層四戶、戶戶邊間的精品質域<br>
-                                讓生活在此優雅落籍
+                            <p class="text-goldYellow/80 text-sm sm:text-xs-plus !leading-loose sm:!tracking-widest">
+                                從法式長型序列著眼，以細膩手法重現法式建築經典<br>
+                                精質40戶極致尊寵，一層四戶、戶戶邊間精品質域<br>
+                                高訂款輕奢尺度，讓生活在此優雅落籍
                             </p>
                         </div>
                     </div>
@@ -516,11 +519,11 @@
                         <h3 class="text-primary-dark font-serif-tc text-xl sm:text-2xl lg:text-2xl xl:text-3xl tracking-[0.15em] leading-relaxed mb-4 sm:mb-6">
                             優雅精琢美學 創新極致哲學
                         </h3>
-                        <p class="text-[#212529] text-xs sm:text-sm !leading-loose tracking-wide">
-                            從建築美學、結構安全、到景觀光影，<br>
-                            聚碩建設聯合國際豪宅團隊，<br>
-                            再創水湳經貿無可取代的經典鉅作，<br>
-                            獻給追求極致生活的少數人。
+                        <p class="text-[#212529] text-sm sm:text-xs-plus !leading-loose sm:!tracking-widest">
+                            從建築美學、結構安全、到景觀光影<br>
+                            聚碩建設聯合國際豪宅團隊<br>
+                            再創水湳經貿無可取代的經典鉅作<br>
+                            獻給追求極致生活的少數人
                         </p>
                     </div>
                     <!-- 團隊成員選擇按鈕 -->
@@ -531,23 +534,23 @@
                             <div class="flex-1 h-px bg-primary-dark"></div>
                         </div>
                         <div class="team-btn-grid grid grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
-                            <button class="team-btn active px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300" data-team="1">
+                            <button class="team-btn active px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-xs-plus font-medium transition-all duration-300" data-team="1">
                                 <span class="block text-[10px] sm:text-xs opacity-70">聚碩建設</span>
                                 <span class="block">李碩祺</span>
                             </button>
-                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300" data-team="2">
+                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-xs-plus font-medium transition-all duration-300" data-team="2">
                                 <span class="block text-[10px] sm:text-xs opacity-70">艸引子建築</span>
                                 <span class="block">蔡長恩</span>
                             </button>
-                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300" data-team="3">
+                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-xs-plus font-medium transition-all duration-300" data-team="3">
                                 <span class="block text-[10px] sm:text-xs opacity-70">大匠工程</span>
                                 <span class="block">許庭偉</span>
                             </button>
-                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300" data-team="4">
+                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-xs-plus font-medium transition-all duration-300" data-team="4">
                                 <span class="block text-[10px] sm:text-xs opacity-70">與作設計</span>
                                 <span class="block">劉守書</span>
                             </button>
-                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300" data-team="5">
+                            <button class="team-btn px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-xs-plus font-medium transition-all duration-300" data-team="5">
                                 <span class="block text-[10px] sm:text-xs opacity-70">上境設計</span>
                                 <span class="block">許富居</span>
                             </button>
@@ -572,7 +575,7 @@
                 <h2 class="text-goldYellow font-garamond text-3xl sm:text-4xl lg:text-5xl tracking-[0.15em] mb-4">
                     RESERVATION
                 </h2>
-                <p class="text-white font-serif-tc text-lg sm:text-xl tracking-widest">
+                <p class="text-white font-serif-tc text-lg sm:text-xl !tracking-widest">
                     預約賞屋
                 </p>
             </div>
@@ -586,7 +589,7 @@
 
                 <!-- 姓名 -->
                 <div>
-                    <label for="name" class="block text-goldYellow text-xs sm:text-sm mb-2 tracking-wide">姓名 <span class="text-red-400">*</span></label>
+                    <label for="name" class="block text-goldYellow text-sm sm:text-xs-plus mb-2 !tracking-widest">姓名 <span class="text-red-400">*</span></label>
                     <input type="text" id="name" name="name" required
                         class="w-full px-4 py-3 bg-white/10 border border-goldYellow/50 text-white placeholder-white/50 focus:border-goldYellow focus:outline-none focus:ring-1 focus:ring-goldYellow transition-colors"
                         placeholder="請輸入您的姓名">
@@ -594,7 +597,7 @@
 
                 <!-- 電話 -->
                 <div>
-                    <label for="phone" class="block text-goldYellow text-xs sm:text-sm mb-2 tracking-wide">電話 <span class="text-red-400">*</span></label>
+                    <label for="phone" class="block text-goldYellow text-sm sm:text-xs-plus mb-2 !tracking-widest">電話 <span class="text-red-400">*</span></label>
                     <input type="tel" id="phone" name="phone" required
                         class="w-full px-4 py-3 bg-white/10 border border-goldYellow/50 text-white placeholder-white/50 focus:border-goldYellow focus:outline-none focus:ring-1 focus:ring-goldYellow transition-colors"
                         placeholder="請輸入您的電話號碼">
@@ -602,7 +605,7 @@
 
                 <!-- 電子郵件 -->
                 <div>
-                    <label for="email" class="block text-goldYellow text-xs sm:text-sm mb-2 tracking-wide">電子郵件 <span class="text-red-400">*</span></label>
+                    <label for="email" class="block text-goldYellow text-sm sm:text-xs-plus mb-2 !tracking-widest">電子郵件 <span class="text-red-400">*</span></label>
                     <input type="email" id="email" name="email" required
                         class="w-full px-4 py-3 bg-white/10 border border-goldYellow/50 text-white placeholder-white/50 focus:border-goldYellow focus:outline-none focus:ring-1 focus:ring-goldYellow transition-colors"
                         placeholder="請輸入您的電子郵件">
@@ -611,13 +614,13 @@
                 <!-- 縣市 / 鄉鎮市區 (TWZipcode) -->
                 <div class="grid grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                        <label class="block text-goldYellow text-xs sm:text-sm mb-2 tracking-wide">縣市 <span class="text-red-400">*</span></label>
+                        <label class="block text-goldYellow text-sm sm:text-xs-plus mb-2 !tracking-widest">縣市 <span class="text-red-400">*</span></label>
                         <select id="county" name="city" required data-role="county"
                             class="location-select w-full px-4 py-3 bg-white/10 border border-goldYellow/50 text-white focus:border-goldYellow focus:outline-none focus:ring-1 focus:ring-goldYellow transition-colors appearance-none cursor-pointer">
                         </select>
                     </div>
                     <div>
-                        <label class="block text-goldYellow text-xs sm:text-sm mb-2 tracking-wide">鄉鎮市區 <span class="text-red-400">*</span></label>
+                        <label class="block text-goldYellow text-sm sm:text-xs-plus mb-2 !tracking-widest">鄉鎮市區 <span class="text-red-400">*</span></label>
                         <select id="district" name="district" required data-role="district"
                             class="location-select w-full px-4 py-3 bg-white/10 border border-goldYellow/50 text-white focus:border-goldYellow focus:outline-none focus:ring-1 focus:ring-goldYellow transition-colors appearance-none cursor-pointer">
                         </select>
@@ -627,14 +630,14 @@
 
                 <!-- 訊息 -->
                 <div>
-                    <label for="message" class="block text-goldYellow text-xs sm:text-sm mb-2 tracking-wide">訊息</label>
+                    <label for="message" class="block text-goldYellow text-sm sm:text-xs-plus mb-2 !tracking-widest">訊息</label>
                     <textarea id="message" name="message" rows="4"
                         class="w-full px-4 py-3 bg-white/10 border border-goldYellow/50 text-white placeholder-white/50 focus:border-goldYellow focus:outline-none focus:ring-1 focus:ring-goldYellow transition-colors resize-none"
                         placeholder="請輸入您的訊息（選填）"></textarea>
                 </div>
 
                 <!-- 隱私權聲明文字 -->
-                <div class="text-white/70 text-xs sm:text-sm leading-relaxed pt-4">
+                <div class="text-white/70 text-sm sm:text-xs-plus leading-relaxed pt-4">
                     <p class="mb-2">您所登錄的個人資料將做為以下用途：</p>
                     <p class="mb-1">(一) 本網站所載之相關事項通知</p>
                     <p class="mb-1">(二) 客戶管理與服務</p>
@@ -646,7 +649,7 @@
                 <div class="flex items-start gap-3 pt-2">
                     <input type="checkbox" id="privacy" name="privacy" required
                         class="mt-1 w-4 h-4 accent-goldYellow cursor-pointer">
-                    <label for="privacy" class="text-white text-sm sm:text-base cursor-pointer">
+                    <label for="privacy" class="text-white text-sm sm:text-xs-plus cursor-pointer">
                         本人已知悉並同意<a href="privacy.html" target="_blank" class="text-goldYellow underline hover:text-goldYellow/80 transition-colors">隱私權政策</a>聲明事項 <span class="text-red-400">*</span>
                     </label>
                 </div>
@@ -656,7 +659,7 @@
 
                 <!-- 確認預約按鈕 -->
                 <div class="pt-4 sm:pt-6 flex justify-center items-center">
-                    <button type="submit" class="submit-btn group relative py-4 px-16 font-serif-tc text-xs sm:text-sm tracking-widest overflow-hidden">
+                    <button type="submit" class="submit-btn group relative py-4 px-16 font-serif-tc text-sm sm:text-xs-plus !tracking-widest overflow-hidden">
                         <!-- Shine border effect -->
                         <span class="shine-border"></span>
                         <!-- Button background with flip effect -->
@@ -789,6 +792,19 @@
                 }
 
                 lastScrollTop = scrollTop;
+            });
+
+            // ===== 平滑滾動效果 =====
+            $('.js-scroll-to').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                var targetElement = $(target);
+
+                if (targetElement.length) {
+                    $('html, body').animate({
+                        scrollTop: targetElement.offset().top
+                    }, 800, 'swing');
+                }
             });
 
             // ===== Global Statement Slick Slider =====
@@ -1012,6 +1028,35 @@
     </script>
 
     <style>
+        /* Global overflow fix for mobile */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        /* Ensure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Fix slick slider overflow on mobile */
+        .slick-slider {
+            overflow: hidden;
+        }
+        .slick-list {
+            overflow: hidden;
+        }
+        .slick-track {
+            display: flex;
+        }
+        .slick-slide {
+            max-width: 100%;
+        }
+        .slick-slide img {
+            max-width: 100%;
+        }
+
         /* Slick Slider Custom Styles */
         .global-statement-slider .slick-prev,
         .global-statement-slider .slick-next {
