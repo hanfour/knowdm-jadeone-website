@@ -983,6 +983,16 @@
                 districtSelect.dispatchEvent(new Event('change'));
             }, 0);
 
+            // ===== Email 全形轉半形修正 =====
+            $('#email').on('input', function() {
+                // 將全形 ＠ 轉換為半形 @
+                const val = $(this).val();
+                const fixed = val.replace(/＠/g, '@');
+                if (val !== fixed) {
+                    $(this).val(fixed);
+                }
+            });
+
             // ===== 表單提交驗證 =====
             $('#reservationForm').on('submit', async function(e) {
                 e.preventDefault();
