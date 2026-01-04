@@ -431,6 +431,8 @@
                         <img src="./images/muse.png" alt="MUSE Design Awards" class="w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain drop-shadow-lg">
                         <img src="./images/rda-design-awards.png" alt="RDA Design Awards" class="w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain drop-shadow-lg">
                         <img src="./images/undesign.png" alt="UN Design Awards" class="w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain drop-shadow-lg">
+                        <img src="./images/DSA.png" alt="歐洲設計力國際大獎獎座" class="w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain drop-shadow-lg">
+                        <img src="./images/ny-architectural-design-awards-2025-1.png" alt="NY Architectural Design Awards" class="w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain drop-shadow-lg">
                     </div>
                 </div>
             </div>
@@ -504,6 +506,20 @@
                             MASTER<br>TEAM
                         </h2>
                     </div>
+                    <!-- 手機版顯示切換成員按鈕 -->
+                    <div class="absolute bottom-0 left-0 block sm:hidden">
+                        <!-- 左右切換 prev/ next -->
+                        <button id="prevMemberBtn" class="bg-primary-dark text-white p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="nextMemberBtn" class="bg-primary-dark text-white p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
                     <!-- 成員照片（手機：業績照片右下角，桌機：右側邊界外） -->
                     <div class="absolute -bottom-4 -right-2 sm:bottom-6 sm:-right-4 lg:-bottom-4 z-10">
                         <div class="member-portrait-gallery">
@@ -526,7 +542,7 @@
                     </div>
                 </div>
                 <!-- 右側：文字區塊 + 成員選擇 -->
-                <div class="w-full lg:w-1/2 mt-12 lg:mt-0 flex flex-col justify-center items-center relative" data-aos="fade-left" data-aos-duration="800" data-aos-anchor="#brandPhilosophy">
+                <div class="w-full lg:w-1/2 mt-8 lg:mt-0 flex flex-col justify-center items-center relative" data-aos="fade-left" data-aos-duration="800" data-aos-anchor="#brandPhilosophy">
                     <!-- 固定文字內容 -->
                     <div class="text-center">
                         <h3 class="text-primary-dark font-serif-tc text-xl sm:text-2xl lg:text-2xl xl:text-3xl tracking-[0.15em] leading-relaxed mb-4 sm:mb-6">
@@ -540,8 +556,8 @@
                         </p>
                     </div>
                     <!-- 團隊成員選擇按鈕 -->
-                    <div class="text-center px-8 mt-12 lg:mt-24 xl:mt-36">
-                        <div class="flex items-center justify-center mb-6 w-full" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600" data-aos-anchor="#brandPhilosophy">
+                    <div class="text-center px-8 mt-6 lg:mt-24 xl:mt-36">
+                        <div class="flex items-center justify-center mb-2 lg:mb-6 w-full" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600" data-aos-anchor="#brandPhilosophy">
                             <div class="flex-1 h-px bg-primary-dark"></div>
                             <h3 class="text-primary-dark font-garamond text-lg md:text-xl lg:text-xl 2xl:text-3xl tracking-[0.3em] px-3 sm:px-4">JADE ONE</h3>
                             <div class="flex-1 h-px bg-primary-dark"></div>
@@ -910,6 +926,18 @@
                 // 切換成員照片（淡入淡出效果）
                 $('.member-portrait').removeClass('active');
                 $('.member-portrait[data-team="' + teamId + '"]').addClass('active');
+            });
+
+            // ===== 手機版左右切換成員按鈕 =====
+            $('#prevMemberBtn').on('click', function() {
+                var currentTeamId = parseInt($('.team-btn.active').data('team'));
+                var prevTeamId = currentTeamId - 1 < 1 ? 5 : currentTeamId - 1; // 循環到最後一個
+                $('.team-btn[data-team="' + prevTeamId + '"]').click();
+            });
+            $('#nextMemberBtn').on('click', function() {
+                var currentTeamId = parseInt($('.team-btn.active').data('team'));
+                var nextTeamId = currentTeamId + 1 > 5 ? 1 : currentTeamId + 1; // 循環到第一個
+                $('.team-btn[data-team="' + nextTeamId + '"]').click();
             });
 
             // ===== 台灣縣市鄉鎮選單 =====
